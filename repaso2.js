@@ -37,7 +37,10 @@ const getPersonajesNombre = async () => {
         const personajes = await getAsync(URL);
         /*personajes.data.results.forEach(personaje => {
             nombreP.push(personaje.name);
-        });*/
+        });*///esta es la forma menos eficiente
+//diferencia entre map y filtrer
+// map --> el array crea una nueva array y va haciendo push solo insertando datos dentro
+// filtrer --> 
         let nombreP = personajes.data.results.map(personaje => personaje.name);
 
         console.log(nombreP);
@@ -122,10 +125,18 @@ const getPokemonSingle = async (id) => {
 }
 //cuando quiero consumir en otra parte del programa un dato de una funcion async await, lo tengo que consumir dentro de otra funcion async await.
 getPersonajes();
-// getPersonajesNombre();
-// getGenero();
 // getSingle(1);
 // getVivos();
 // getAlien();
 // getPokemon();
 // getPokemonSingle(1);
+// getGenero();
+// getPersonajesNombre();
+
+//diferencia entre map y filtrer
+// map --> el array crea una nueva array y va haciendo push solo insertando datos dentro
+// filtrer --> evalua una condicion 
+
+//para subir el archivo al git
+//git add .
+//git commit -m ""
