@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-// const URL = 'https://rickandmortyapi.com/api/character';
+//const URL = 'https://rickandmortyapi.com/api/character';
 const URL = 'https://www.breakingbadapi.com/api/characters'
 
 const get = (url) => {
     const data = axios.get(url)
-        .then(res => console.log(res.data.results))
+        .then(res => console.log(res.data))
         .catch(e => console.log(e));
     //return data;
     //console.log(data);
@@ -121,7 +121,7 @@ const getPokemonSingle = async (id) => {
     }
 }
 //cuando quiero consumir en otra parte del programa un dato de una funcion async await, lo tengo que consumir dentro de otra funcion async await.
-getPersonajes();
+get(URL);
 // getPersonajesNombre();
 // getGenero();
 // getSingle(1);
