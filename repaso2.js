@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-// const URL = 'https://rickandmortyapi.com/api/character';
-const URL = 'https://www.breakingbadapi.com/api/characters'
+const URL = 'https://rickandmortyapi.com/api/character';
+// const URL = 'https://www.breakingbadapi.com/api/characters'
 
 const get = (url) => {
     const data = axios.get(url)
@@ -46,12 +46,13 @@ const getPersonajesNombre = async () => {
         console.log(error);
     }
 }
-const getGenero = async (gender = "Female") => {
+const getGenero = async (gender = "Male") => {
     try {
         const info = await getAsync(URL);
         const personajes = info.data.results;
         const filtrado = personajes.filter(personaje => personaje.gender === gender);
-        console.log(filtrado);
+        let malesMap = filtrado.map(personaje => personaje.name)
+        console.log(malesMap);
     }
     catch (e) {
         console.log(e);
@@ -121,9 +122,9 @@ const getPokemonSingle = async (id) => {
     }
 }
 //cuando quiero consumir en otra parte del programa un dato de una funcion async await, lo tengo que consumir dentro de otra funcion async await.
-getPersonajes();
+// getPersonajes();
 // getPersonajesNombre();
-// getGenero();
+getGenero();
 // getSingle(1);
 // getVivos();
 // getAlien();
