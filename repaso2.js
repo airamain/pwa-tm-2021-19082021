@@ -49,7 +49,7 @@ const getPersonajesNombre = async () => {
 const getGenero = async (gender = "Female") => {
     try {
         const info = await getAsync(URL);
-        const personajes = info.data.results;
+        const {data : personajes} = info;
         const filtrado = personajes.filter(personaje => personaje.gender === gender);
         console.log(filtrado);
     }
@@ -57,6 +57,19 @@ const getGenero = async (gender = "Female") => {
         console.log(e);
     }
 }
+
+const getStatus = async (status = "Alive") => {
+    try {
+        const info = await getAsync(URL);
+        const {data : personajes} = info;
+        const filtrado = personajes.filter(personaje => personaje.status === status).map(p => p.name);
+        console.log(filtrado);
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
+
 const getSingle = async (id) => {
     try {
         const info = await getAsync(`${URL}/${id}`); // URL + '/' + id
@@ -121,9 +134,10 @@ const getPokemonSingle = async (id) => {
     }
 }
 //cuando quiero consumir en otra parte del programa un dato de una funcion async await, lo tengo que consumir dentro de otra funcion async await.
-getPersonajes();
+// getPersonajes();
 // getPersonajesNombre();
 // getGenero();
+getStatus("Deceased");
 // getSingle(1);
 // getVivos();
 // getAlien();
