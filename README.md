@@ -26,3 +26,6 @@ trabajar en repaso2.js
 apellido.js
 
 modificar getGenero cambiar parametro y hacer un filter y un map
+
+
+en la carpeta ejercicio se realizo la tarea

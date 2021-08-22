@@ -125,7 +125,7 @@ getPersonajes();
 // getPersonajesNombre();
 // getGenero();
 // getSingle(1);
-// getVivos();
+ getVivos();
 // getAlien();
 // getPokemon();
 // getPokemonSingle(1);
