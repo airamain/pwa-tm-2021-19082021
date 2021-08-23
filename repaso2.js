@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-//const URL = 'https://rickandmortyapi.com/api/character';
-const URL = 'https://www.breakingbadapi.com/api/characters'
+const URL = 'https://rickandmortyapi.com/api/character';
+//const URL = 'https://www.breakingbadapi.com/api/characters'
 
 const get = (url) => {
     const data = axios.get(url)
