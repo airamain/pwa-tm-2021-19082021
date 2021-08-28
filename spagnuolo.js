@@ -5,7 +5,8 @@ const axios = require("axios");
 /*async function get(url){
     const Personajes = await axios.get(url);
     console.log(Personajes);
-}*/
+
+};*/
 
 const get = async (url) => {
     //const personajes = await axios.get(url)
@@ -13,11 +14,11 @@ const get = async (url) => {
     try {
         const personajes = await axios.get(url);
         personajes.data.forEach(data => {
-            console.log(`"nombre:" ${data.name}, "nickname:" ${data.nickname}`);
+            //console.log(`"nombre:" ${data.name}, "nickname:" ${data.nickname}`);
             //console.log(personajes.data)
-            //let nombreP = personajes.data.results.map(personaje => personaje.name);
+            let nombreP = personajes.data.map(personaje => personaje.name);
 
-            //console.log(nombreP);
+            console.log(nombreP);
             
         });
     }
@@ -30,4 +31,6 @@ const get = async (url) => {
 
 get("https://www.breakingbadapi.com/api/characters");
 //get();
+
+
 
