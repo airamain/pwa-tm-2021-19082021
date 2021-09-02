@@ -1,0 +1,19 @@
+* Modelo Vista Controlador
+BD = db
+Vistas = view
+Controlador = controller
+
+* servidor = express
+
+* Proyectos separados
+
+FROND
+BACKEND esto
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+* MONGOSSE = ORM de mongo para facilitar las consultas a la db, listar, crear, editar, modificar
+* DOTENV = para crear archivo con variables de entorno
+
+  "scripts": {
+    "start": "node ." ( busca nuestro archivo index.js, si el file se llama diferente ./nombre.js)
+  },

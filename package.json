@@ -1,0 +1,20 @@
+{
+  "name": "26-08-2021-continuacion-clase3",
+  "version": "1.0.0",
+  "description": "node mas express con mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "author": "JMAI",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
