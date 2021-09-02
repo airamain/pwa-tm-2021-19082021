@@ -1,20 +1,19 @@
 const express = require('express');
 const app = express();
+const conectarDB = require('./config/db');
 
-require('dotenv').config({path: './config/variables.env'});
+require('dotenv').config({ path: './config/variables.env' });
 const port = process.env.PORT_SERVER || 4500
 
-const home = require('./routes/home');
-const servicios = require('./routes/servicios');
-const posteos = require('./routes/posteos');
+// llamar a la conectar
+conectarDB()
 
+// lectura / habilitar express.json 
+app.use(express.json({ extend: true }));
 
-app.use('/servicios', servicios);
-app.use('/', posteos);
-app.use('/', home);
+//Routes
+app.use('/api/usuarios', require('./routes/Usuario'));
 
-
-
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`server escuchando en port :${port}`);
 })
