@@ -181,7 +181,6 @@ router.get('/top10', (req, res) => {
 // quiero que me devuelva (get) un solo post
 router.get('/one/:id', (req, res) => {
     const id = req.params.id;
-    console.log('id:', id);
     if (id) {
         const postOne = post.find((item) => {
             return item.id == id

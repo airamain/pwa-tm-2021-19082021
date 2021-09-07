@@ -1,6 +1,10 @@
 const Usuario = require('../models/Usuario');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
+require('dotenv').config({ path: 'variables.env' });
+
+// implementar jsonwebtoken
+const jwt = require('jsonwebtoken');
 
 exports.crearUsuario = async (req, res) => {
     // vamos a extraer email y password - ok
@@ -10,7 +14,7 @@ exports.crearUsuario = async (req, res) => {
 
     // con el dato del password, vamos a encriptarlo o hashearlo con "npm i bcryptjs "
     //--------------------------//
-    
+
     // aplicamos express-validator 
     const error = validationResult(req);
 
@@ -34,9 +38,23 @@ exports.crearUsuario = async (req, res) => {
         // reescribir nuestro password
         usuario.password = await bcryptjs.hash(password, salt);
 
-        await usuario.save()
+        await usuario.save();
 
-        res.send("Usuario guardado")
+        // Crear y Firmar jsonwebtoken
+        const payload = {
+            usuario: {
+                id: usuario.id
+            }
+        };
+
+        // firmar
+        jwt.sign(payload, process.env.SECRETA, {
+            expiresIn: 3600 // una hora
+        }, (error, token) => {
+            if (error) throw error;
+            res.json({ token: token });
+        })
+
     } catch (error) {
         console.log(error)
         res.status(400).send("error al guardar")

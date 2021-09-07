@@ -6,6 +6,7 @@ const usuarioController = require('../controller/usuarioController');
 // validaremos usando express-validator
 const { check } = require('express-validator');
 
+
 //api/usuarios
 router.post('/',
     [
