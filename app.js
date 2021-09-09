@@ -57,7 +57,7 @@ app.post('/', (req, res) =>{
         <html>
             <head></head>
                 <body>
-                    <p>POST PAGINA DE INICIO </p>
+                    <p>POST PAGINA DE INICIO PRUEBA</p>
                 </body>
         </html>
         `)
