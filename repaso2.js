@@ -31,7 +31,7 @@ const getPersonajes = async () => {
     }
     
 }
-//map, filter
+//map (da un array nuevos), filter (evalua una condicion)
 const getPersonajesNombre = async () => {
     try {
         const personajes = await getAsync(URL);
@@ -90,7 +90,7 @@ const getVivos = async (status = "Alive", species = "Human") => {
 const getAlien = async (species = "Alien") => {
     try {
         const info = await getAsync(URL);
-        const personajes = info.data.results;
+        const personajes = info.data.results;    /* por ejemplo si ponems.info nostrae la info*/
         const aliens = personajes.filter(personaje => personaje.species === species);
         console.log(aliens);
     }
@@ -129,3 +129,5 @@ getPersonajes();
 // getAlien();
 // getPokemon();
 // getPokemonSingle(1);
+
+//ir cambiando arriba para ver que trae
